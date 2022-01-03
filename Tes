@@ -1,0 +1,103 @@
+import java.util.Scanner;
+public class main{
+  public static void main(String [] args){
+    Scanner scan = new Scanner(System.in);
+    int choose = 0;
+    String tempName = "";
+    
+    String film1 = "Spiderman";
+    String film2 = "Kungfu panda";
+    String film3 = "Marvel";
+    
+    do{
+    System.out.println("\t\t Bioskop RvH");
+    System.out.println("| Kode film | Nama film");
+    System.out.println("---------------------------");
+    System.out.printf("| %13s | %9s | \n",1,film1);
+    System.out.printf("| %13s | %9s | \n",2,film2);
+    System.out.printf("| %13s | %9s | \n",3,film3);
+    System.out.println("---------------------------");
+    
+    
+    System.out.println("1. Buy");
+    System.out.println("2. view");
+    System.out.println("3. Update");
+    System.out.println("4. Delete");
+    System.out.println("5. Exit");
+    System.out.println("Pilih >>");
+    
+    try{
+      choose = scan.nextInt();scan.nextLine();
+    }catch(Exception e){
+    choose = -1;
+    System.out.println("KESALAHAN COBA LAGI");
+   }
+   
+   switch (choose){
+   case 1:
+   String tempEmail = "";
+   
+   do{
+   System.out.println("Masukkan nama anda : ");
+   tempName = scan.nextLine();
+   }while(tempName.isEmpty() || tempName.length() < 2);
+   
+   do{
+     System.out.println("Masukkan email anda :");
+     tempEmail = scan.nextLine();
+   }while(!tempEmail.contains("@") || tempEmail.contains(".com"));
+   
+    int harga = 0;
+    int tempKode =0;
+    int tempJumlah =0;
+    int bayar = 0;
+    int kembalian = 0;
+    
+    do{
+    System.out.println("Masukkan kode film 1..5 : ");
+    tempKode = scan.nextInt();scan.nextLine();
+    }while(tempKode <1 || tempKode >5);
+    
+    do{
+    System.out.println("Masukkan jumlah lebih dari [0] : ");
+    tempJumlah = scan.nextInt();scan.nextLine();
+    }while(tempJumlah <= 0);
+
+    if(tempKode == 1){
+      harga = 30000;
+    }else if(tempKode == 2){
+      harga = 35000;
+    }else if(tempKode == 3){
+      harga = 40000;
+    }else if(tempKode == 4){
+      harga = 45000;
+    }else{
+      harga = 50000;
+    }
+    
+    int totalharga = harga * tempJumlah;
+    System.out.println("Total : "+totalharga);
+    scan.nextLine();
+    
+    System.out.println("Masukkan jumlah uang anda : ");
+    scan.nextLine();
+    
+    if(harga < bayar){
+      System.out.println("Uang anda tidak cukup");
+    }else{
+      kembalian = bayar - harga;
+      System.out.println("Kembalian anda : "+kembalian);
+    }
+    
+    break;
+ case 2:
+     break;
+ case 3:
+     break;
+ case 4:
+     break;
+     }
+     
+   }while(choose !=5);
+  }
+}
